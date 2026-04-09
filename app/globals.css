@@ -1,26 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  /* Crossword-specific colours */
+  --cell-selected: #3B82F6;
+  --cell-selected-text: #ffffff;
+  --word-highlight: #DBEAFE;
+  --cell-incorrect: #EF4444;
+  --cell-revealed: #22C55E;
+  --cell-black: #1F2937;
+  --grid-border: #374151;
+
+  /* Accent */
+  --accent: #3B82F6;
+  --accent-light: #EFF6FF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-sans: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Force light mode */
+html {
+  color-scheme: light;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ── Crossword Grid Cells ───────────────────────────────────────── */
+
+.crossword-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--grid-border);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+  text-transform: uppercase;
+  transition: background-color 0.1s ease;
+  aspect-ratio: 1;
+  outline: none;
+}
+
+.crossword-cell.black {
+  background: var(--cell-black);
+  cursor: default;
+}
+
+.crossword-cell.word-highlight {
+  background: var(--word-highlight);
+}
+
+.crossword-cell.selected {
+  background: var(--cell-selected);
+  color: var(--cell-selected-text);
+}
+
+.crossword-cell .cell-number {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.crossword-cell.selected .cell-number {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.crossword-cell.incorrect {
+  color: var(--cell-incorrect);
+}
+
+.crossword-cell.revealed {
+  color: var(--cell-revealed);
+}
+
+/* ── Clue List ─────────────────────────────────────────────────── */
+
+.clue-item {
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.clue-item:hover {
+  background: #f3f4f6;
+}
+
+.clue-item.active {
+  background: var(--word-highlight);
+  font-weight: 500;
+}
+
+/* ── Toolbar Buttons ───────────────────────────────────────────── */
+
+.toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toolbar-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.toolbar-btn:active {
+  transform: scale(0.98);
+}
+
+.toolbar-btn.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.toolbar-btn.primary:hover {
+  background: #2563eb;
+}
+
+.toolbar-btn.danger {
+  color: var(--cell-incorrect);
+  border-color: #fecaca;
+}
+
+.toolbar-btn.danger:hover {
+  background: #fef2f2;
+}
+
+/* ── Completion Modal ──────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 24rem;
+  width: 90%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── Grid Editor ───────────────────────────────────────────────── */
+
+.editor-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  user-select: none;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  aspect-ratio: 1;
+}
+
+.editor-cell.black {
+  background: var(--cell-black);
+}
+
+.editor-cell.white {
+  background: white;
+}
+
+.editor-cell.white:hover {
+  background: #f0f9ff;
+}
+
+.editor-cell .cell-number {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: clamp(0.45rem, 1vw, 0.6rem);
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1;
+}
+
+/* ── Scrollbar Styling ─────────────────────────────────────────── */
+
+.clue-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.clue-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.clue-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+.clue-scroll::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }

@@ -1,0 +1,349 @@
+{
+  "id": "week1",
+  "title": "Week 1 Vocabulary",
+  "size": {
+    "rows": 7,
+    "cols": 7
+  },
+  "cells": [
+    {
+      "row": 0,
+      "col": 0,
+      "black": false,
+      "letter": "C",
+      "number": 1
+    },
+    {
+      "row": 0,
+      "col": 1,
+      "black": false,
+      "letter": "L"
+    },
+    {
+      "row": 0,
+      "col": 2,
+      "black": false,
+      "letter": "A"
+    },
+    {
+      "row": 0,
+      "col": 3,
+      "black": false,
+      "letter": "S",
+      "number": 2
+    },
+    {
+      "row": 0,
+      "col": 4,
+      "black": false,
+      "letter": "S"
+    },
+    {
+      "row": 0,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 0,
+      "col": 6,
+      "black": false,
+      "letter": "Q",
+      "number": 3
+    },
+    {
+      "row": 1,
+      "col": 0,
+      "black": false,
+      "letter": "R"
+    },
+    {
+      "row": 1,
+      "col": 1,
+      "black": true
+    },
+    {
+      "row": 1,
+      "col": 2,
+      "black": true
+    },
+    {
+      "row": 1,
+      "col": 3,
+      "black": false,
+      "letter": "C"
+    },
+    {
+      "row": 1,
+      "col": 4,
+      "black": true
+    },
+    {
+      "row": 1,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 1,
+      "col": 6,
+      "black": false,
+      "letter": "U"
+    },
+    {
+      "row": 2,
+      "col": 0,
+      "black": false,
+      "letter": "A"
+    },
+    {
+      "row": 2,
+      "col": 1,
+      "black": true
+    },
+    {
+      "row": 2,
+      "col": 2,
+      "black": true
+    },
+    {
+      "row": 2,
+      "col": 3,
+      "black": false,
+      "letter": "O"
+    },
+    {
+      "row": 2,
+      "col": 4,
+      "black": true
+    },
+    {
+      "row": 2,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 2,
+      "col": 6,
+      "black": false,
+      "letter": "I"
+    },
+    {
+      "row": 3,
+      "col": 0,
+      "black": false,
+      "letter": "M",
+      "number": 4
+    },
+    {
+      "row": 3,
+      "col": 1,
+      "black": false,
+      "letter": "A"
+    },
+    {
+      "row": 3,
+      "col": 2,
+      "black": false,
+      "letter": "L"
+    },
+    {
+      "row": 3,
+      "col": 3,
+      "black": false,
+      "letter": "L"
+    },
+    {
+      "row": 3,
+      "col": 4,
+      "black": true
+    },
+    {
+      "row": 3,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 3,
+      "col": 6,
+      "black": false,
+      "letter": "Z"
+    },
+    {
+      "row": 4,
+      "col": 0,
+      "black": false,
+      "letter": "S"
+    },
+    {
+      "row": 4,
+      "col": 1,
+      "black": true
+    },
+    {
+      "row": 4,
+      "col": 2,
+      "black": true
+    },
+    {
+      "row": 4,
+      "col": 3,
+      "black": false,
+      "letter": "D",
+      "number": 5
+    },
+    {
+      "row": 4,
+      "col": 4,
+      "black": false,
+      "letter": "E"
+    },
+    {
+      "row": 4,
+      "col": 5,
+      "black": false,
+      "letter": "N"
+    },
+    {
+      "row": 4,
+      "col": 6,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 0,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 1,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 2,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 3,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 4,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 5,
+      "col": 6,
+      "black": true
+    },
+    {
+      "row": 6,
+      "col": 0,
+      "black": false,
+      "letter": "S",
+      "number": 6
+    },
+    {
+      "row": 6,
+      "col": 1,
+      "black": false,
+      "letter": "T"
+    },
+    {
+      "row": 6,
+      "col": 2,
+      "black": false,
+      "letter": "U"
+    },
+    {
+      "row": 6,
+      "col": 3,
+      "black": false,
+      "letter": "D"
+    },
+    {
+      "row": 6,
+      "col": 4,
+      "black": false,
+      "letter": "Y"
+    },
+    {
+      "row": 6,
+      "col": 5,
+      "black": true
+    },
+    {
+      "row": 6,
+      "col": 6,
+      "black": true
+    }
+  ],
+  "clues": {
+    "across": [
+      {
+        "number": 1,
+        "answer": "CLASS",
+        "row": 0,
+        "col": 0,
+        "length": 5,
+        "clue": "A group of students taught together"
+      },
+      {
+        "number": 4,
+        "answer": "MALL",
+        "row": 3,
+        "col": 0,
+        "length": 4,
+        "clue": "A large indoor shopping centre"
+      },
+      {
+        "number": 5,
+        "answer": "DEN",
+        "row": 4,
+        "col": 3,
+        "length": 3,
+        "clue": "A cosy room for relaxation or study"
+      },
+      {
+        "number": 6,
+        "answer": "STUDY",
+        "row": 6,
+        "col": 0,
+        "length": 5,
+        "clue": "To review and learn material before an exam"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "answer": "CRAMS",
+        "row": 0,
+        "col": 0,
+        "length": 5,
+        "clue": "Studies intensively just before an exam"
+      },
+      {
+        "number": 2,
+        "answer": "SCOLD",
+        "row": 0,
+        "col": 3,
+        "length": 5,
+        "clue": "To reprimand someone for wrongdoing"
+      },
+      {
+        "number": 3,
+        "answer": "QUIZ",
+        "row": 0,
+        "col": 6,
+        "length": 4,
+        "clue": "A short test of knowledge"
+      }
+    ]
+  }
+}
