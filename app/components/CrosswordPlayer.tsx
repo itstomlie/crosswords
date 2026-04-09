@@ -118,7 +118,7 @@ export default function CrosswordPlayer({
       ref={gridRef}
       className="grid w-full min-w-[280px] max-w-[500px]"
       style={{
-        gridTemplateColumns: `repeat(${puzzle.size.cols}, 1fr)`,
+        gridTemplateColumns: `repeat(${puzzle.size.cols}, minmax(0, 1fr))`,
         gap: 0,
         border: `2px solid var(--grid-border)`,
       }}
@@ -130,14 +130,21 @@ export default function CrosswordPlayer({
         row.map((cell, c) => {
           const selected = isCellSelected(r, c);
           const inWord = isCellInWord(r, c);
+          const isCorrect = cell.isChecked && !cell.isIncorrect;
+          const isWrong = cell.isChecked && cell.isIncorrect;
 
           const classNames = [
             "crossword-cell",
             cell.isBlack ? "black" : "",
             selected ? "selected" : "",
-            !cell.isBlack && inWord && !selected ? "word-highlight" : "",
-            cell.isIncorrect ? "incorrect" : "",
-            cell.isRevealed ? "revealed" : "",
+            !cell.isBlack && inWord && !selected && !isCorrect && !isWrong
+              ? "word-highlight"
+              : "",
+            isCorrect && !selected ? "checked-correct" : "",
+            isWrong && !selected ? "checked-incorrect" : "",
+            cell.isRevealed && !selected && !isCorrect && !isWrong
+              ? "revealed"
+              : "",
           ]
             .filter(Boolean)
             .join(" ");

@@ -58,14 +58,15 @@ export default function GridEditor({
       <p className="text-xs text-muted mb-3">Click cells to toggle black/white</p>
 
       {/* Grid */}
-      <div
-        className="inline-grid w-full max-w-[min(100%,450px)]"
-        style={{
-          gridTemplateColumns: `repeat(${cols}, 1fr)`,
-          gap: 0,
-          border: "2px solid var(--grid-border)",
-        }}
-      >
+      <div className="max-h-[60vh] overflow-auto">
+        <div
+          className="inline-grid w-full max-w-[min(100%,450px)]"
+          style={{
+            gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+            gap: 0,
+            border: "2px solid var(--grid-border)",
+          }}
+        >
         {grid.map((row, r) =>
           row.map((cell, c) => {
             const num = numberMap.get(`${r},${c}`);
@@ -83,6 +84,7 @@ export default function GridEditor({
             );
           })
         )}
+      </div>
       </div>
     </div>
   );

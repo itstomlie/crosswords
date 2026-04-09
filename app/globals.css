@@ -59,6 +59,9 @@ body {
   transition: background-color 0.1s ease;
   aspect-ratio: 1;
   outline: none;
+  overflow: hidden;
+  min-height: 0;
+  min-width: 0;
 }
 
 .crossword-cell.black {
@@ -89,12 +92,19 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.crossword-cell.incorrect {
-  color: var(--cell-incorrect);
+.crossword-cell.checked-correct {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.crossword-cell.checked-incorrect {
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 .crossword-cell.revealed {
-  color: var(--cell-revealed);
+  background: #f0fdf4;
+  color: #166534;
 }
 
 /* ── Clue List ─────────────────────────────────────────────────── */
